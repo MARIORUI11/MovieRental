@@ -10,5 +10,7 @@ namespace MovieRental.Movie
 		[Required]
         public string Title { get; set; } = string.Empty;
 
-	}
+		public bool IsActive { get; set; } = true;
+
+    }
 }
