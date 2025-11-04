@@ -17,6 +17,9 @@ Can you help us fix some issues and implement missing features?
  
  * We noticed we do not have a table for customers, it is not good to have just the customer name in the rental.
    Can you help us add a new entity for this? Don't forget to change the customer name field to a foreign key, and fix your previous method!
+    >Added a Customer entity
+        >>I wanted to add Migrations as I've used Migrations in my last project but I was having some issues getting the correct updates working. As of this moment I'm focusing on delivering a working solution but in a setting with a bit more time I would 100% implement it and keep it updated for every database update.
+ 
  * In the MovieFeatures class, there is a method to list all movies, tell us your opinion about it.
  * No exceptions are being caught in this api, how would you deal with these exceptions?
 
