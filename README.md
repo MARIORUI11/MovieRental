@@ -10,6 +10,9 @@ Can you help us fix some issues and implement missing features?
     >>The service should be Scoped as the dbContext is also scoped and we want it to create an object that will last until the request is done.
 
  * The rental class has a method to save, but it is not async, can you make it async and explain to us what is the difference?
+    >The method being async allows multiple requests to be made without having to wait for the data of one to be saved before it can run another one.
+
+
  * Please finish the method to filter rentals by customer name, and add the new endpoint.
  * We noticed we do not have a table for customers, it is not good to have just the customer name in the rental.
    Can you help us add a new entity for this? Don't forget to change the customer name field to a foreign key, and fix your previous method!
