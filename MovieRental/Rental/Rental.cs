@@ -17,6 +17,7 @@ namespace MovieRental.Rental
 		[ForeignKey("Customer")]
 		public int CustomerId { get; set; }
 
-		public string PaymentMethod { get; set; }
-	}
+		public decimal RentalCost { get; set; }
+        public string? PaymentMethod { get; set; }
+    }
 }
