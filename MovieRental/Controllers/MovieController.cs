@@ -16,9 +16,17 @@ namespace MovieRental.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public async Task<IActionResult> Get(
+            bool onlyActive,
+            int? pageSize,
+            int? pageNumber)
         {
-	        return Ok(_features.GetAll());
+            var movies = await _features.GetAll(
+                onlyActive: onlyActive,
+                pageSize: pageSize ?? 10,
+                pageNumber: pageNumber ?? 0);
+
+            return Ok(movies);
         }
 
         [HttpPost]
