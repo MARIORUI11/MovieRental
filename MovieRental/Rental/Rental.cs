@@ -8,14 +8,15 @@ namespace MovieRental.Rental
 		[Key]
 		public int Id { get; set; }
 		public int DaysRented { get; set; }
+		
 		public Movie.Movie? Movie { get; set; }
+		public Customer.Customer? Customer { get; set; }
 
 		[ForeignKey("Movie")]
 		public int MovieId { get; set; }
+		[ForeignKey("Customer")]
+		public int CustomerId { get; set; }
 
 		public string PaymentMethod { get; set; }
-
-		// TODO: we should have a table for the customers
-		public string CustomerName { get; set; }
 	}
 }
