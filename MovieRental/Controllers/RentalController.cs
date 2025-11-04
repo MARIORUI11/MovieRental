@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MovieRental.DTOs;
 using MovieRental.Rental;
 
 namespace MovieRental.Controllers
@@ -24,9 +25,23 @@ namespace MovieRental.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] Rental.Rental rental)
+        public async Task<IActionResult> Post([FromBody] SaveRentalDto rentalDto)
         {
-	        return Ok(_features.SaveAsync(rental));
+            var rental = new Rental.Rental
+            {
+                CustomerId = rentalDto.CustomerId,
+                MovieId = rentalDto.MovieId,
+                DaysRented = rentalDto.DaysRented,
+                RentalCost = rentalDto.RentalCost,
+                PaymentMethod = rentalDto.PaymentMethod
+            };
+
+            var result = await _features.SaveAsync(rental);
+            
+            if (result == null)
+                return BadRequest("Payment failed.");
+
+            return Ok(result);
         }
 	}
 }
