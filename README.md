@@ -4,6 +4,11 @@ This is a dummy representation of a movie rental system.
 Can you help us fix some issues and implement missing features?
 
  * The app is throwing an error when we start, please help us. Also, tell us what caused the issue.
+    > The app is throwing an error on Program.cs due to the DI service for RentalFeatures being defined as Singleton.
+    >>The service can't be a Singleton because it depends on MovieRentalDbContext that is a scoped service.
+    >>The service shouldn't be Transient since inside the same request it will create new objects.
+    >>The service should be Scoped as the dbContext is also scoped and we want it to create an object that will last until the request is done.
+
  * The rental class has a method to save, but it is not async, can you make it async and explain to us what is the difference?
  * Please finish the method to filter rentals by customer name, and add the new endpoint.
  * We noticed we do not have a table for customers, it is not good to have just the customer name in the rental.
