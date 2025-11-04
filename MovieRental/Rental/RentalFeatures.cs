@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MovieRental.Data;
+using System.Threading.Tasks;
 
 namespace MovieRental.Rental
 {
@@ -21,9 +22,12 @@ namespace MovieRental.Rental
 		}
 
 		//TODO: finish this method and create an endpoint for it
-		public IEnumerable<Rental> GetRentalsByCustomerName(string customerName)
+		public async Task<IEnumerable<Rental>> GetRentalsByCustomerName(string customerName)
 		{
-			return [];
+			var rentalByCustomerName =  _movieRentalDb.Rentals
+				.Where(r => r.CustomerName.Equals(customerName));
+
+            return rentalByCustomerName;
 		}
 
 	}
